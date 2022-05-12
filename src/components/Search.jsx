@@ -52,7 +52,7 @@ const Search = () => {
     <div className="row mt-4">
       <div className="col-12 align-items-center d-flex flex-column">
         <h2>Public Apis:</h2>
-        <input type="text" className="form-control w-50" onChange={e => onChangeInput(e) } placeholder="Search"/>
+        <input type="text" className="form-control w-50" onChange={e => onChangeInput(e) } placeholder="Search..."/>
       </div>
     </div>
   )
