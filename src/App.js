@@ -2,6 +2,7 @@ import React from 'react'
 import List from './components/List';
 import Search from './components/Search';
 import { CurrencyProvider } from './context/CurrencyContext';
+import { SearchProvider } from './context/SearchContext';
 import Layout from './layout/Layout';
 
 // const apiEndpoint = "https://api.publicapis.org/entries?category=cryptocurrency";
@@ -9,10 +10,12 @@ import Layout from './layout/Layout';
 const App = () => {
   return (
     <CurrencyProvider>
-      <Layout>
-        <Search />
-        <List />
-      </Layout>
+      <SearchProvider>
+        <Layout>
+          <Search />
+          <List />
+        </Layout>
+      </SearchProvider>
     </CurrencyProvider>
   )
 }

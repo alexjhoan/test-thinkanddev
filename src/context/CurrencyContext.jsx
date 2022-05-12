@@ -7,8 +7,6 @@ const url = process.env.REACT_APP_API
 const CurrencyProvider = ({children}) => {
   const [data, setData] = useState()
   const [allData, setAllData] = useState()
-  const [search, setSearch] = useState(false)
-  const [notFind, setNotFind] = useState(false)
 
   useEffect(() => {
     const getApi = async () => {
@@ -24,7 +22,7 @@ const CurrencyProvider = ({children}) => {
     getApi()
   }, [])
  
-  const globalState = { data, setData, allData, search, setSearch, notFind, setNotFind }
+  const globalState = { data, setData, allData }
 
   return (
     <CurrencyContext.Provider value={globalState}>

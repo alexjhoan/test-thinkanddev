@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import CurrencyContext from '../context/CurrencyContext'
-import Spinner from './Spinner'
+import SearchContext from '../context/SearchContext'
 
 const Search = () => {
-  const {data, setData, allData, setSearch, setNotFind} = useContext(CurrencyContext)
+  const {setData, allData} = useContext(CurrencyContext)
+  const {setSearching, setNotResult} = useContext(SearchContext)
 
   // funcion que busca solo con el API name
 
@@ -13,7 +14,7 @@ const Search = () => {
   //   })
   //   setData(result)
   //   setTimeout(() => {
-  //     setSearch(false)
+  //     setSearching(false)
   //   }, 600);
   // }
 
@@ -25,24 +26,24 @@ const Search = () => {
     })
     if (result.length > 0) {
       setData(result)
-      setNotFind(false)
+      setNotResult(false)
     } else {
-      setNotFind(true)
+      setNotResult(true)
       setData([])
     }
     setTimeout(() => {
-      setSearch(false)
-    }, 600);
+      setSearching(false)
+    }, 650);
   }
 
 
   const onChangeInput = (e) => {
     let inputValue = e.target.value.toLowerCase()
     if (inputValue.length > 0) {
-      setSearch(true)
+      setSearching(true)
       search(inputValue)  
     } else {
-      setSearch(false)
+      setSearching(false)
       setData(allData)
     }    
   }
